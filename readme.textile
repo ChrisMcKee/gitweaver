@@ -6,7 +6,8 @@ h2. Introduction
 GITWeaver is a Dreamweaver Extension that TortoiseGIT. 
 
 Localisations:
-* English  "https://github.com/downloads/ChrisMcKee/gitweaver/GITWeaver%20-%200.9.6%20-%20English.zip":GITWeaver-0.9.6
+* English  "http://cloud.github.com/downloads/ChrisMcKee/gitweaver/GITWeaver%20-%200.9.6%20-%20English.zip":GITWeaver-0.9.6
+^ if this link fails, click the big download button and choose the first (most recent) text link that appears under DOWNLOAD PACKAGES 
 
 h2. Installation
 
@@ -50,4 +51,4 @@ If the GPL suits your project better you are also free to use this project under
 You don't have to do anything special to choose one license or the other and you don't have to notify anyone which license you are using. 
 You are free to use this project in commercial projects as long as the copyright header is left intact.
 
-h4. Code Copyright Chris McKee 2009-2010
+h4. Code Copyright Chris McKee 2009-2011
