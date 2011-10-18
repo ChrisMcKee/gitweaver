@@ -1,6 +1,8 @@
 h1. GITWeaver - GIT for Dreamweaver
 from "chrismckee.co.uk":http://chrismckee.co.uk/?utm_source=Github&utm_medium=GITWeaver&utm_campaign=website-link
 
+h1. DOWNLOAD FROM HERE https://github.com/ChrisMcKee/gitweaver/downloads
+
 h2. Introduction
 
 GITWeaver is a Dreamweaver Extension that TortoiseGIT. 
