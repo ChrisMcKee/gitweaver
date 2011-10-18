@@ -8,7 +8,7 @@ h2. Introduction
 GITWeaver is a Dreamweaver Extension that TortoiseGIT. 
 
 Localisations:
-* English  "http://cloud.github.com/downloads/ChrisMcKee/gitweaver/GITWeaver%20-%200.9.6%20-%20English.zip":GITWeaver-0.9.6
+* English  "https://github.com/ChrisMcKee/gitweaver/downloads":GITWeaver-0.9.6
 ^ if this link fails, click the big download button and choose the first (most recent) text link that appears under DOWNLOAD PACKAGES 
 
 h2. Installation
