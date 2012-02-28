@@ -1,5 +1,5 @@
 h1. GITWeaver - GIT for Dreamweaver
-h1. Part of "TurtleWeaver":http://turtleweaver.co.uk/
+Part of "TurtleWeaver":http://turtleweaver.co.uk/
 from "chrismckee.co.uk":http://chrismckee.co.uk/?utm_source=Github&utm_medium=GITWeaver&utm_campaign=website-link
 
 h1. DOWNLOAD FROM HERE https://github.com/ChrisMcKee/gitweaver/downloads
@@ -9,12 +9,12 @@ h2. Introduction
 GITWeaver is a Dreamweaver Extension that TortoiseGIT. 
 
 Localisations:
-* English  "https://github.com/ChrisMcKee/gitweaver/downloads":GITWeaver-0.9.6
+* English  "https://github.com/ChrisMcKee/gitweaver/downloads":GITWeaver-1.4
 ^ if this link fails, click the big download button and choose the first (most recent) text link that appears under DOWNLOAD PACKAGES 
 
 h2. Installation
 
-Download and install TortoiseGIT 32BIT from "http://code.google.com/p/tortoisegit/":http://code.google.com/p/tortoisegit/
+Download and install TortoiseGIT from "http://code.google.com/p/tortoisegit/":http://code.google.com/p/tortoisegit/
 Download the extension from the Download page
 Extract the ZIP and Run the .mxp extension package file that you downloaded. The Adobe extension manager will handle the installation.
 When you run Dreamweaver now, you will see a new menu in the menu bar, called GIT (this is the PAGE menu) and under right click in the site explorer on any site that is a working path :o)
@@ -36,22 +36,5 @@ h2. Using GITWeaver
 
 It's exactly the same as using TortoiseGIT but from inside Dreamweaver, seriously.
 
-h2. Troubleshooting
 
-*I'm Running on Windows x64 (64bit)*
-
-INSTALL TortoiseGIT x86 (32BIT) ALONG SIDE YOUR EXISTING INSTALLATION OF TortoiseGIT x64.
-... As per the Tortoise Sites instructions...
-"Note for X64 users: you can install both the 32 and 64-bit version side by side.
-This will enable the TortoiseGIT features in Explorer (x64) and other 64bit applications and also for 32-bit applications."
-Dreamweaver CS/CS2/CS3/CS4/CS5 are 32bit applications.
-
-h3. Licence
-
-You may use this project under the terms of either the MIT License or the GNU General Public License (GPL) Version 2.
-The MIT License is recommended for most projects. It is simple and easy to understand and it places almost no restrictions on what you can do with this project.
-If the GPL suits your project better you are also free to use this project under that license.
-You don't have to do anything special to choose one license or the other and you don't have to notify anyone which license you are using. 
-You are free to use this project in commercial projects as long as the copyright header is left intact.
-
-h4. Code Copyright Chris McKee 2009-2011
+h4. Code Copyright Chris McKee 2009-2012
