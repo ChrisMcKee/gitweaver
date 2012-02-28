@@ -1,5 +1,5 @@
 h1. GITWeaver - GIT for Dreamweaver
-h1, Part of "TurtleWeaver":http://turtleweaver.co.uk/
+h1. Part of "TurtleWeaver":http://turtleweaver.co.uk/
 from "chrismckee.co.uk":http://chrismckee.co.uk/?utm_source=Github&utm_medium=GITWeaver&utm_campaign=website-link
 
 h1. DOWNLOAD FROM HERE https://github.com/ChrisMcKee/gitweaver/downloads
