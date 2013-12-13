@@ -1,0 +1,81 @@
+<macromedia-extension
+	 name="GITShellWeaver"
+	 version="0.8.1"
+	 type="utility"
+	 requires-restart="true">
+
+	<author name="Chris McKee (chrismckee.co.uk)" />
+
+	<products>
+		<product name="Dreamweaver" version="6" primary="true" />
+	</products>
+
+	<description>
+	<![CDATA[
+	GITShellWeaver (Version control) plugin for Mercurial (HG).
+	]]>
+	</description>
+
+	<ui-access>
+	<![CDATA[
+	Access Mercurial functionality from within the Dreamweaver IDE.<br>
+	This plugin will insert a HG menu, which provides access to the basic functionality.<br>
+	Code Copyright Chris McKee<br>
+	Downloaded From: <a href="http://bit.ly/hgweaver">http://bit.ly/hgweaver</a> (check for updates)
+	Please log any errors at the above site or request features on the same site<br>
+	or drop me an email pcdevils[at]gmail.com thanks.<br>
+	--------------------------------------------------<br>
+	REQUIREMENT<br>
+	YOU MUST INSTALL GITShellWeaver x86 (32bit) on your system, even on Windows x64 (64bit)<br>
+	On a Windows 64bit system you will be able to install both the 32BIT and 64BIT Tortoise HG.
+	--------------------------------------------------<br>
+	<b>[BUILT 2010 by] <a href="http://chrismckee.co.uk">Chris McKee</a><b><br>
+	[based on SubWeaver by] Matthew Schmidt
+	]]>
+	</ui-access>
+
+	<license-agreement>
+	<![CDATA[
+	You may use this project under the terms of either the MIT License or the GNU General Public License (GPL) Version 2.
+	The MIT License is recommended for most projects. It is simple and easy to understand and it places almost no restrictions on what you can do with this project.
+	If the GPL suits your project better you are also free to use this project under that license.
+	You don’t have to do anything special to choose one license or the other and you don’t have to notify anyone which license you are using. You are free to use this project in commercial projects as long as the copyright header is left intact.
+	]]>
+	</license-agreement>
+
+	<files>
+		<file source="GITShellWeaver.htm" destination="$dreamweaver/configuration/menus/GITShellWeaver" />
+	</files>
+
+	<configuration-changes>		
+		<menu-insert insertAfter="DWContext_LocalSite_Synchronize" skipSeparator="true">
+			<separator />
+			<menu id="GITShellWeaver_Site" name="GITShellWeaver">
+			</menu>
+			<menuitem id="GITShellWeaver_Commit_Site" name="Commit" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'commit','site'" />
+			<menuitem id="GITShellWeaver_Update_Site" name="Update" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'update','site'" />
+			<menuitem id="GITShellWeaver_Log_Site" name="Show Log" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'log','site'" />
+			<separator />
+		</menu-insert>
+		<menu-insert appendTo="GITShellWeaver_Site">
+			<menuitem id="GITShellWeaver_Commit_Site" name="Commit" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'commit','site'" />
+			<menuitem id="GITShellWeaver_Update_Site" name="Update" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'update','site'" />
+			<menuitem id="GITShellWeaver_Add_Site" name="Add" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'add','site'" />
+			<menuitem id="GITShellWeaver_Remove_Site" name="Delete" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'remove','site'" />
+			<menuitem id="GITShellWeaver_Revert_Site" name="Revert" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'revert','site'" />
+			<menuitem id="GITShellWeaver_Ignore_Site" name="Ignore" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'ignore','site'" />
+			<separator />
+			<menuitem id="GITShellWeaver_Lock_Site" name="Lock" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'lock','site'" />
+			<menuitem id="GITShellWeaver_Unlock_Site" name="Unlock" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'unlock','site'" />
+			<separator />
+			<menuitem id="GITShellWeaver_Log_Site" name="Show Log" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'log','site'" />
+			<menuitem id="GITShellWeaver_Diff_Site" name="Diff" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'diff','site'" />
+			<menuitem id="GITShellWeaver_Blame_Site" name="Blame" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'blame','site'" />
+			<menuitem id="GITShellWeaver_Cloak_Site" name="Cloak HG Folders" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'cloak','site'" />
+			<separator />
+			<menuitem id="GITShellWeaver_InitRepo_Site" name="Init Repo" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'init','site'" />
+			<menuitem id="GITShellWeaver_OpenShellHere_Site" name="Open Shell Here" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'openshell','site'" />
+			<menuitem id="GITShellWeaver_Updateavailable_Site" name="Check for Update" file="Menus/GITShellWeaver/GITShellWeaver.htm" arguments="'updateavailable','site'" />
+		</menu-insert>
+	</configuration-changes>
+</macromedia-extension>

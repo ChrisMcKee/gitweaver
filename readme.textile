@@ -27,6 +27,9 @@ h2. Updating This Extension ~ Checking for updates
 In the site explorer right click a folder, GIT- (bottom of the dropdown) Check for Updates
 This will check for a newer version of this extension and after that bring up the TGIT About page so you can check if thats up-to-date.
 
+The MXP version will stay out of date as I no longer have the extension manager version required to create the files. ZXP has been a usable format for ~5 years now.
+You can always build the mxp in your older version using the extensions manager.
+
 h2. Localisation
 
 If anyone's interested in localising GITWeaver. Drop me an email pcdevils[at]gmail.com Thanks
@@ -34,6 +37,17 @@ If anyone's interested in localising GITWeaver. Drop me an email pcdevils[at]gma
 h2. Using GITWeaver
 
 It's exactly the same as using TortoiseGIT but from inside Dreamweaver, seriously.
+
+
+h1. Developing in this hellish Macromedia API (dont be fooled; adobe have offered bugger all in improvements to the original)
+
+h2. Clearing out the extension
+
+Unfortunately; developing for DW is a sucky experience. More often than not you will remove an extension, install again and find the bloody thing is the old version. 
+
+The easiest way to clear the stored settings of dreamweaver (as with when something goes wrong with the install in normal use) is to delete the contents of %appdata%\Adobe\Dreamweaver VERSION\en_US\Configuration
+
+See API.appendix for more.
 
 
 h4. Code Copyright Chris McKee 2009-2014

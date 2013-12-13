@@ -1,0 +1,159 @@
+<html>
+</head>
+<script type="text/javascript">
+//<![CDATA[
+var currentVersion = "1.4.1";
+
+//Registry
+var regHIVE, regKEY, regVALUE, tGITPATH;
+
+/* Can Accept Command
+   Returns: Bool
+*/
+var canAcceptCommand = function()
+{
+	var locFUNC = arguments[0];
+	var uiLOC = arguments[1];
+	//MENU CHECK
+	if (dw.getDocumentDOM() == null && locFUNC != "about" && locFUNC != "settings" && locFUNC != "help" && locFUNC != "cloak" && uiLOC == "menu")
+	{
+		return false;
+	}
+	//RIGHTCLICK CHECK
+	//TODO: Removed isGIT(DWfile) &&  from start of following statement
+	if (locFUNC != "about" && locFUNC != "settings" && locFUNC != "help" && locFUNC != "cloak" && locFUNC != "updateavailable" && uiLOC == "site")
+	{
+		return false;
+	}
+
+	return true;
+}
+
+/* Version Control */
+var updateAvailable = function(){
+	var WebVersion = MMHttp.getText("http://chrismckee.co.uk/turtleweaver/dwgitextversionextversion");
+	if(parseInt(WebVersion.statusCode) == 200)
+	{
+		if(parseFloat(WebVersion.data) > parseFloat(currentVersion)){ alert("There is an Update Available at https://github.com/ChrisMcKee/gitweaver/"); }
+		else{ alert("Current Installed Version: " + currentVersion + "\nWeb Version: "+ WebVersion.data); }
+	}else{ alert("Couldn't Connect to server, please check the site; your version is " + currentVersion); }
+}
+
+/* Which Platform */
+var setPlatformReg = function(){
+    
+	//Set REG Location
+	regHIVE= 'HKEY_LOCAL_MACHINE';
+	regKEY = 'SOFTWARE\\TortoiseGIT';
+	regVALUE='ProcPath';
+    
+    tGITPATH = MM.regGetValue(regHIVE, regKEY, regVALUE);
+	//IF User hasnt installed GIT
+	if(tGITPATH === "") alert("*** YOU NEED TO INSTALL TortoiseGIT  ***\nYOU CAN GET THIS FROM\nhttp:\/\/code.google.com\/p\/tortoisegit\/ \n --------------------");
+	
+}
+
+
+/* Argument Handler */
+var receiveArguments = function()
+{
+	//Populate Windows BIT Version (x86 or x64)
+	setPlatformReg();
+
+    if (arguments.length !== 2) return;
+
+    var locFUNC = arguments[0], uiLOC = arguments[1];
+	
+	if (locFUNC === "updateavailable") updateAvailable();
+    if (locFUNC === "about" || locFUNC === "settings" || locFUNC === "help")
+    {
+      var args = '/command:' + locFUNC + ' /notempfile'
+      MM.shellExecute(tGITPATH, args, "");
+    }
+    else if(locFUNC === "cloak")
+    {
+      checkFolder(site.siteRelativeToLocalPath("/"),DWfile);
+      site.refresh("local");
+    }
+    else if(uiLOC == "menu")
+    {
+      var args = '/command:' + locFUNC + ' /path:\"' + convertToPath(dw.getDocumentDOM().URL) + '\" /notempfile'
+      MM.shellExecute(tGITPATH, args, "");
+    }
+	else if(uiLOC === "site")
+    {
+      if(locFUNC === "add" || locFUNC === "pull" || locFUNC === "fetch" || locFUNC === "push" || locFUNC === "diff" || locFUNC === "tag" || locFUNC === "commit" || locFUNC === "rebase" || locFUNC === "log" || locFUNC === "delete" || locFUNC === "revert" || locFUNC === "merge" || locFUNC === "rebase" || locFUNC === "reset" || locFUNC === "stash save" || locFUNC === "branch")
+      {
+        var args = '/command:' + locFUNC + ' /path:\"' + fileArrayToString(site.getSelection()) + '\" /notempfile'
+        MM.shellExecute(tGITPATH, args, "");
+      }
+      else
+      {
+        var args = '/command:' + locFUNC + ' /path:\"' + convertToPath(site.getSelection()[0]) + '\" /notempfile'
+        MM.shellExecute(tGITPATH, args, "");
+      }
+    
+    }
+}//END ARG HANDLER
+
+
+var convertToPath = function(file){	return file.substring(8).replace("|",":"); }
+
+var fileArrayToString = function(files)
+{
+	var fileString = convertToPath(files[0]);
+		for(i = 1; i < files.length; i++)
+		  fileString = fileString + '*' + convertToPath(files[i]);
+		  
+	return fileString; 
+}
+
+var isGIT = function(dwf)
+{
+	return true;
+
+	var returnStatus = false;
+	var folder = site.getLocalPathToFiles();
+	var dotGIT  = dwf.getAttributes(folder + "\\.git\\");
+	var dot_GIT = dwf.getAttributes(folder + "\\_git\\");
+
+	if(typeof dwf !== 'undefined')
+	{ 
+	  if(dotGIT != null || dot_GIT != null)
+	  {
+		returnStatus = true;
+	  }
+	}
+	return returnStatus;
+}
+
+
+var checkFolder = function(folder, dwf)
+{
+	if(typeof dwf !== 'undefined')
+	{
+	  var sel = dwf.listFolder(folder, "directories");
+			
+	  for( var i in sel )
+	  {
+		var ds = dwf.getAttributes(folder + sel[i]);
+		if( ds && (ds.indexOf('D') > -1 ))
+		{
+		  if(( sel[i] == '.git' ) || ( sel[i] == '_git' ) || ( sel[i] == '.GIT' ) || ( sel[i] == '_SVN' ))
+		  {
+			site.cloak(folder + sel[i]);
+		  }
+		  else
+		  {
+			if(typeof dwf !== 'undefined') checkFolder(folder + sel[i] + "\\", dwf);
+		  }
+		}
+	  } 
+	}
+}
+//]]>
+</script>
+</head>
+<body>
+</body>
+</html>

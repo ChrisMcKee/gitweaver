@@ -1,0 +1,159 @@
+<html>
+</head>
+<script type="text/javascript">
+//<![CDATA[
+var currentVersion = "0.8.1";
+
+//Registry
+var regHIVE, regKEY, regVALUE, thgPATH;
+
+//Helper
+
+function arrayContains(a)
+{
+  var o = {};
+  for(var i=0;i<a.length;i++)
+  {
+    o[a[i]]='';
+  }
+  return o;
+}
+
+
+/* Can Accept Command
+   Returns: Bool
+*/
+var canAcceptCommand = function()
+{
+	var locFUNC = arguments[0];
+	var uiLOC = arguments[1];
+
+	//RIGHTCLICK CHECK
+	if (isHG(DWfile) == false && locFUNC != "about" && locFUNC != "settings" && locFUNC != "help" && locFUNC != "cloak" && locFUNC != "updateavailable" && locFUNC != "init" && uiLOC == "site")
+	{
+		return false;
+	}
+
+	return true;
+}
+
+/* Version Control */
+var updateAvailable = function(){
+	var WebVersion = MMHttp.getText("http://j.chrismckee.co.uk/dwhgextversion");
+	if(parseInt(WebVersion.statusCode) == 200)
+	{
+		if(parseFloat(WebVersion.data) > parseFloat(currentVersion)){ alert("There is an Update Available at http://bit.ly/hgweaver"); }
+		else{ alert("Current Installed Version: " + currentVersion + "\nWeb Version: "+ WebVersion.data); }
+	}else{ alert("Couldn't Connect to server, please check the site; your version is " + currentVersion); }
+}
+
+// NOTE FOR ME : MM.shellExecute('C:\\PROGRA~1\\TortoiseHg\\thgw.exe', locFUNC, "M:\\WebSites\\TortoiseWeaver2012");
+
+/* Argument Handler */
+var receiveArguments = function()
+{
+	var folderRootDir = site.siteRelativeToLocalPath("/");
+	var selectedFolderDepth = convertToPath(site.getSelection()[0]);
+	var thgPATH = 'cmd';
+	//var thgPATH = 'sh';//OSX
+	
+    if (arguments.length !== 2) return;
+
+    var locFUNC = arguments[0], uiLOC = arguments[1];
+	
+	if (locFUNC === "updateavailable") updateAvailable();
+    if (locFUNC === "about" || locFUNC === "settings" || locFUNC === "help")
+    {
+      //var args = '/command:' + locFUNC + ' /notempfile'
+      MM.shellExecute(thgPATH,locFUNC, folderRootDir);
+    }
+    else if(locFUNC === "cloak")
+    {
+      checkFolder(site.siteRelativeToLocalPath("/"),DWfile);
+      site.refresh("local");
+    }
+    //else if(uiLOC == "menu")
+    //{
+    //  MM.shellExecute(thgPATH, locFUNC, convertToPath(dw.getDocumentDOM().URL));
+    //}
+	else if(uiLOC === "site")
+    {
+      if(locFUNC === "add" || locFUNC === "remove" || locFUNC === "revert" || locFUNC === "ignore" || locFUNC === "lock" || locFUNC === "unlock" || locFUNC === "commit" || locFUNC === "init")
+      {     
+		alert("THGPATH:"+thgPATH);
+		alert("locFUNC:"+locFUNC);
+		alert("selectedFolderDepth:"+selectedFolderDepth);
+		//Linux uses SH		
+		//locFUNC = '/c git ' + locFUNC + ' || read -p "$*"';
+		
+		//Windows uses CMD
+		locFUNC = '/P /K git ' + locFUNC;
+        MM.shellExecute(thgPATH, locFUNC, selectedFolderDepth);
+      }
+      else
+      {       
+        MM.shellExecute(thgPATH, locFUNC, selectedFolderDepth);
+      }
+    
+    }
+}//END ARG HANDLER
+
+
+var convertToPath = function(file){	return file.substring(8).replace("|",":"); }
+
+var fileArrayToString = function(files)
+{
+	var fileString = convertToPath(files[0]);
+		for(i = 1; i < files.length; i++)
+		  fileString = fileString + '*' + convertToPath(files[i]);
+		  
+	return fileString; 
+}
+
+var isHG = function(dwf)
+{
+	var returnStatus = false;
+	var folder = site.getLocalPathToFiles();
+	var dotHG  = dwf.getAttributes(folder + "\\.git\\");
+	var dot_HG = dwf.getAttributes(folder + "\\_git\\");
+
+	if(typeof dwf !== 'undefined')
+	{ 
+	  if(dotHG != null || dot_HG != null)
+	  {
+		returnStatus = true;
+	  }
+	}
+	return returnStatus;
+}
+
+
+var checkFolder = function(folder, dwf)
+{
+	if(typeof dwf !== 'undefined')
+	{
+	  var sel = dwf.listFolder(folder, "directories");
+			
+	  for( var i in sel )
+	  {
+		var ds = dwf.getAttributes(folder + sel[i]);
+		if( ds && (ds.indexOf('D') > -1 ))
+		{
+		  if(( sel[i] == '.git' ) || ( sel[i] == '_git' ))
+		  {
+			site.cloak(folder + sel[i]);
+		  }
+		  else
+		  {
+			if(typeof dwf !== 'undefined') checkFolder(folder + sel[i] + "\\", dwf);
+		  }
+		}
+	  } 
+	}
+}
+//]]>
+</script>
+</head>
+<body>
+</body>
+</html>
