@@ -1,29 +1,23 @@
-h2. NOTICE - I'll sort this out verrrrrry soon (Github have dropped downloads)
-
 h1. GITWeaver - GIT for Dreamweaver
 Part of "TurtleWeaver":http://turtleweaver.co.uk/
 from "chrismckee.co.uk":http://chrismckee.co.uk/?utm_source=Github&utm_medium=GITWeaver&utm_campaign=website-link
 
-h1. DOWNLOAD FROM HERE https://github.com/ChrisMcKee/gitweaver/downloads
+h1. DOWNLOAD from the repo. For CC/CS6 you will need to use the ZXP, all other versions will be able to use MXI
 
 h2. Introduction
 
-GITWeaver is a Dreamweaver Extension that TortoiseGIT. 
-
-Localisations:
-* English  "https://github.com/ChrisMcKee/gitweaver/downloads":GITWeaver-1.4
-^ if this link fails, click the big download button and choose the first (most recent) text link that appears under DOWNLOAD PACKAGES 
-
+GITWeaver is a Dreamweaver Extension that hooks DreamWeaver into TortoiseGIT. 
+ 
 h2. Installation
 
 Download and install TortoiseGIT from "http://code.google.com/p/tortoisegit/":http://code.google.com/p/tortoisegit/
 Download the extension from the Download page
-Extract the ZIP and Run the .mxp extension package file that you downloaded. The Adobe extension manager will handle the installation.
+.mxp/.zxp extension package file that you downloaded. The Adobe extension manager will handle the installation.
 When you run Dreamweaver now, you will see a new menu in the menu bar, called GIT (this is the PAGE menu) and under right click in the site explorer on any site that is a working path :o)
 
 If you right click in Dreamweavers file explorer and the menu is greyed out its probably because the root of the site doesnt contain a .git/_git/.GIT/_GIT folder.
 
-h3. "SVNWeaver, SVN in Dreamweaver; go try it out.":http://github.com/ChrisMcKee/svnweaver/
+h3. "SVNWeaver, TortoiseSVN in Dreamweaver; go try it out.":http://github.com/ChrisMcKee/svnweaver/
 
 h2. Updating This Extension ~ Checking for updates
 
@@ -39,4 +33,4 @@ h2. Using GITWeaver
 It's exactly the same as using TortoiseGIT but from inside Dreamweaver, seriously.
 
 
-h4. Code Copyright Chris McKee 2009-2012
+h4. Code Copyright Chris McKee 2009-2014

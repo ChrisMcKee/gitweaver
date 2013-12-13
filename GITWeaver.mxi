@@ -1,0 +1,120 @@
+<macromedia-extension
+	 name="GITWeaver"
+	 version="1.4.1"
+	 type="utility"
+	 requires-restart="true">
+
+	<author name="Chris McKee (chrismckee.co.uk)" />
+
+	<products>
+		<product name="Dreamweaver" version="6" primary="true" />
+	</products>
+
+	<description>
+	<![CDATA[
+	TortoiseGIT (Version control) plugin for GIT.
+	]]>
+	</description>
+
+	<ui-access>
+	<![CDATA[
+	Access GIT functionality from within the Dreamweaver IDE.<br>
+	This plugin will insert a GIT menu, which provides access to the basic functionality.<br>
+	Code Copyright Chris McKee<br>
+	Downloaded From: <a href="http://chrismckee.co.uk/turtleweaver/">http://chrismckee.co.uk/turtleweaver/</a> 
+	Please log any errors at the above site or request features on the same site<br>
+	or drop me an email pcdevils[at]gmail.com thanks.<br>
+	--------------------------------------------------<br>
+	REQUIREMENT<br>
+	YOU MUST INSTALL TortoiseGIT on your system<br>
+	<a href="http://code.google.com/p/tortoisegit/">Download TortoiseGIT from Google Code</a>
+	--------------------------------------------------<br>
+	<b>[BUILT 2010 by] <a href="http://chrismckee.co.uk">Chris McKee</a><b><br>
+	[based on SVNWeaver by] Chris McKee
+	<a href="http://chrismckee.co.uk/turtleweaver/">http://chrismckee.co.uk/turtleweaver/</a>
+	]]>
+	</ui-access>
+
+	<license-agreement>
+	<![CDATA[
+	Copyright (c) 2010 - 2013 Chris McKee (chrismckee.co.uk)
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.	]]>
+	</license-agreement>
+
+	<files>
+		<file source="GITWeaver.htm" destination="$dreamweaver/configuration/menus/GITWeaver" />
+	</files>
+
+	<configuration-changes>
+		<menu-insert insertAfter="DWMenu_Commands" skipSeparator="true">
+			<menu id="GITWeaver" name="_GIT"></menu>
+		</menu-insert>
+		<menu-insert appendTo="GITWeaver">
+			<menuitem id="GITWeaver_Update_Menu" name="GIT Pull" file="Menus/GITWeaver/GITWeaver.htm" arguments="'pull','menu'" />
+			<menuitem id="GITWeaver_Commit_Menu" name="GIT Commit" file="Menus/GITWeaver/GITWeaver.htm" arguments="'commit','menu'" />
+			<menuitem id="GITWeaver_Commit_Menu" name="GIT Push" file="Menus/GITWeaver/GITWeaver.htm" arguments="'push','menu'" />
+		</menu-insert>
+		<menu-insert insertAfter="GITWeaver_Commit_Menu" skipSeparator="true">
+			<menu id="TortoiseGIT" name="TortoiseGIT">
+		</menu>
+		</menu-insert>
+		<menu-insert appendTo="TortoiseGIT">
+			<menuitem id="GITWeaver_Log_Menu" name="Show log" file="Menus/GITWeaver/GITWeaver.htm" arguments="'log','menu'" />
+			<menuitem id="GITWeaver_Repobrowser_Menu" name="Repo-browser" file="Menus/GITWeaver/GITWeaver.htm" arguments="'repobrowser','menu'" />
+			<menuitem id="GITWeaver_Repostatus_Menu" name="Check for modifications" file="Menus/GITWeaver/GITWeaver.htm" arguments="'repostatus','menu'" />
+			<separator />
+			<menuitem id="GITWeaver_Rename_Menu" name="Rename" file="Menus/GITWeaver/GITWeaver.htm" arguments="'rename','menu'" />
+			<menuitem id="GITWeaver_Delete_Menu" name="Delete" file="Menus/GITWeaver/GITWeaver.htm" arguments="'delete','menu'" />
+			<separator />
+			<!--<menuitem id="GITWeaver_Stash_Site" name="Stash Save" file="Menus/GITWeaver/GITWeaver.htm" arguments="'stash save','site'" />-->
+			<menuitem id="GITWeaver_Rebase_Site" name="Rebase" file="Menus/GITWeaver/GITWeaver.htm" arguments="'rebase','site'" />
+			<!--<menuitem id="GITWeaver_Reset_Site" name="Reset" file="Menus/GITWeaver/GITWeaver.htm" arguments="'reset','site'" />-->
+			<menuitem id="GITWeaver_Merge_Site" name="Merge" file="Menus/GITWeaver/GITWeaver.htm" arguments="'merge','site'" />
+			<menuitem id="GITWeaver_Branch_Site" name="Branch" file="Menus/GITWeaver/GITWeaver.htm" arguments="'branch','site'" />
+			<menuitem id="GITWeaver_Tag_Site" name="Tag" file="Menus/GITWeaver/GITWeaver.htm" arguments="'tag','site'" />
+			<separator />
+			<menuitem id="GITWeaver_Createpatch_Menu" name="Create patch" file="Menus/GITWeaver/GITWeaver.htm" arguments="'createpatch','menu'" />
+			<menuitem id="GITWeaver_Properties_Menu" name="Properties" file="Menus/GITWeaver/GITWeaver.htm" arguments="'properties','menu'" />
+			<menuitem id="GITWeaver_Cloak_Menu" name="Cloak GIT Folders" file="Menus/GITWeaver/GITWeaver.htm" arguments="'cloak','menu'" />
+			<separator />
+			<menuitem id="GITWeaver_Help_Menu" name="Help" file="Menus/GITWeaver/GITWeaver.htm" arguments="'help','menu'" />
+			<menuitem id="GITWeaver_Settings_Menu" name="Settings" file="Menus/GITWeaver/GITWeaver.htm" arguments="'settings','menu'" />
+			<menuitem id="GITWeaver_About_Menu" name="About" file="Menus/GITWeaver/GITWeaver.htm" arguments="'about','menu'" />
+		</menu-insert>
+		<menu-insert insertAfter="DWContext_LocalSite_Synchronize" skipSeparator="true">
+			<separator />
+			<menu id="GITWeaver_Site" name="GIT">
+			</menu>
+			<menuitem id="GITWeaver_Pull_Site" name="Pull" file="Menus/GITWeaver/GITWeaver.htm" arguments="'pull','site'" />
+			<menuitem id="GITWeaver_Commit_Site" name="Commit" file="Menus/GITWeaver/GITWeaver.htm" arguments="'commit','site'" />
+			<menuitem id="GITWeaver_Push_Site" name="Push" file="Menus/GITWeaver/GITWeaver.htm" arguments="'push','site'" />
+			<menuitem id="GITWeaver_Sync_Site" name="Sync" file="Menus/GITWeaver/GITWeaver.htm" arguments="'sync','site'" />
+			<menuitem id="GITWeaver_Log_Site" name="Show Log" file="Menus/GITWeaver/GITWeaver.htm" arguments="'log','site'" />			
+			<separator />
+		</menu-insert>
+		<menu-insert appendTo="GITWeaver_Site">
+			<menuitem id="GITWeaver_Commit_Site" name="Commit" file="Menus/GITWeaver/GITWeaver.htm" arguments="'commit','site'" />
+			<menuitem id="GITWeaver_Pull_Site" name="Pull" file="Menus/GITWeaver/GITWeaver.htm" arguments="'pull','site'" />
+			<menuitem id="GITWeaver_Add_Site" name="Add" file="Menus/GITWeaver/GITWeaver.htm" arguments="'add','site'" />
+			<menuitem id="GITWeaver_Remove_Site" name="Delete" file="Menus/GITWeaver/GITWeaver.htm" arguments="'remove','site'" />
+			<menuitem id="GITWeaver_Revert_Site" name="Revert" file="Menus/GITWeaver/GITWeaver.htm" arguments="'revert','site'" />
+			<menuitem id="GITWeaver_Ignore_Site" name="Ignore" file="Menus/GITWeaver/GITWeaver.htm" arguments="'ignore','site'" />
+			<separator />
+			<!--<menuitem id="GITWeaver_Stash_Site" name="Stash Save" file="Menus/GITWeaver/GITWeaver.htm" arguments="'stash save','site'" />-->
+			<menuitem id="GITWeaver_Rebase_Site" name="Rebase" file="Menus/GITWeaver/GITWeaver.htm" arguments="'rebase','site'" />
+			<!--<menuitem id="GITWeaver_Reset_Site" name="Reset" file="Menus/GITWeaver/GITWeaver.htm" arguments="'reset','site'" />-->
+			<menuitem id="GITWeaver_Merge_Site" name="Merge" file="Menus/GITWeaver/GITWeaver.htm" arguments="'merge','site'" />
+			<menuitem id="GITWeaver_Branch_Site" name="Branch" file="Menus/GITWeaver/GITWeaver.htm" arguments="'branch','site'" />
+			<menuitem id="GITWeaver_Tag_Site" name="Tag" file="Menus/GITWeaver/GITWeaver.htm" arguments="'tag','site'" />
+			<separator />
+			<menuitem id="GITWeaver_Log_Site" name="Show Log" file="Menus/GITWeaver/GITWeaver.htm" arguments="'log','site'" />
+			<menuitem id="GITWeaver_Diff_Site" name="Diff" file="Menus/GITWeaver/GITWeaver.htm" arguments="'diff','site'" />
+			<menuitem id="GITWeaver_Blame_Site" name="Blame" file="Menus/GITWeaver/GITWeaver.htm" arguments="'blame','site'" />
+			<menuitem id="GITWeaver_Cloak_Site" name="Cloak GIT Folders" file="Menus/GITWeaver/GITWeaver.htm" arguments="'cloak','site'" />
+			<separator />
+			<menuitem id="GITWeaver_Updateavailable_Site" name="Check for Update" file="Menus/GITWeaver/GITWeaver.htm" arguments="'updateavailable','site'" />
+		</menu-insert>
+	</configuration-changes>
+</macromedia-extension>
