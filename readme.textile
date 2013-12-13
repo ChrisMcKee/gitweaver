@@ -22,7 +22,7 @@ If you right click in Dreamweavers file explorer and the menu is greyed out its 
 
 h3. "SVNWeaver, TortoiseSVN in Dreamweaver; go try it out.":http://github.com/ChrisMcKee/svnweaver/
 
-h2. Updating This Extension ~ Checking for updates
+h3. Updating This Extension ~ Checking for updates
 
 In the site explorer right click a folder, GIT- (bottom of the dropdown) Check for Updates
 This will check for a newer version of this extension and after that bring up the TGIT About page so you can check if thats up-to-date.
@@ -30,18 +30,18 @@ This will check for a newer version of this extension and after that bring up th
 The MXP version will stay out of date as I no longer have the extension manager version required to create the files. ZXP has been a usable format for ~5 years now.
 You can always build the mxp in your older version using the extensions manager.
 
-h2. Localisation
+h3. Localisation
 
 If anyone's interested in localising GITWeaver. Drop me an email pcdevils[at]gmail.com Thanks
 
-h2. Using GITWeaver
+h3. Using GITWeaver
 
 It's exactly the same as using TortoiseGIT but from inside Dreamweaver, seriously.
 
 
-h1. Developing in this hellish Macromedia API (dont be fooled; adobe have offered bugger all in improvements to the original)
+h3. Developing in this hellish Macromedia API (dont be fooled; adobe have offered bugger all in improvements to the original)
 
-h2. Clearing out the extension
+h4. Clearing out the extension
 
 Unfortunately; developing for DW is a sucky experience. More often than not you will remove an extension, install again and find the bloody thing is the old version. 
 
