@@ -1,8 +1,11 @@
 h1. GITWeaver - GIT for Dreamweaver
+
 Part of "TurtleWeaver":http://turtleweaver.co.uk/
 from "chrismckee.co.uk":http://chrismckee.co.uk/?utm_source=Github&utm_medium=GITWeaver&utm_campaign=website-link
 
-h1. DOWNLOAD from the repo. For CC/CS6 you will need to use the ZXP, all other versions will be able to use MXI
+h3. DOWNLOAD from the repo. 
+For CC/CS6 you will need to use the ZXP, 
+all other versions will be able to use MXI
 
 h2. Introduction
 
